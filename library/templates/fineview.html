@@ -1,0 +1,45 @@
+
+{% extends 'bash.html' %}
+{% load static %}
+{% block body %}
+    <div>
+
+        {% if error %}
+
+       <center><div class="container" style="background-color:rgb(240, 240, 240);width:600px;border-radius:4%;margin-top:200px;height:200px"> <i class="fa fa-exclamation-triangle fa-5x" aria-hidden="true" style="color:red;margin-top:20px"></i>
+           <h3 style="color:Darkslategrey;background-color:rgb(240, 240, 240);">You Have {{late}} Days Late</h3>
+        <h3 font-color="white" style="color:Darkslategrey;background-color:rgb(240, 240, 240);">Your Fine is : {{fine}}</h3></div></center>
+        {% else %}
+        <h3 align="center">ORDER BOOK</h3>
+    <table border="1" style="width:1000px" align="center" id="myTable"  class="table table-border">
+        <tr>
+            <th>Book ID</th>
+            <th>Student</th>
+            <th>Book</th>
+            <th>Authorname</th>
+            <th>IssueDate</th>
+            <th> ExpiryDate</th>
+            <th> Return</th>
+
+        </tr>
+        {% for i in data1 %}
+         <tr>
+
+             <td>{{i.book.bookid}} </td>
+             <td>{{i.user.user.username}} </td>
+             <td>{{i.book.title}} </td>
+             <td>{{i.book.Authorname}} </td>
+             <td>{{i.issuedate}}</td>
+             <td>{{i.expirydate}}</td>
+             <td> <button><a href="{% url 'fine' i.id %}">Fine</a></button> </td>
+
+
+         </tr>
+        {% endfor %}
+
+    </table>
+        {% endif %}
+    </div>
+{% endblock %}
+
+

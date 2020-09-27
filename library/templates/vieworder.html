@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+<center>
+    <h1>Add Book</h1>
+    <table>
+        <tr>
+            <td>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <h4>Book Name </h4><input type="text" name="Bookname" >
+                    <h4>suggested</h4> <input type="text" name="suggested" ><br>
+                    <h4>Author Name </h4><input type="text" name="Authorname" >
+                    <input type="search" name="search" placeholder="search">
+                </form>
+            </td>
+         </tr>
+    </table>
+
+</center>
+
+
+{% endblock %}

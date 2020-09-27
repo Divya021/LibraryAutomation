@@ -1,0 +1,38 @@
+
+{% extends 'bash.html' %}
+{% load static %}
+{% block body %}
+    <div>
+        <h3 align="center">ORDER BOOK</h3>
+        <table border="1" style="width:1000px" align="center" id="myTable"  class="table table-border">
+
+        <tr>
+            <th>Book ID</th>
+            <th>Student</th>
+            <th>Book</th>
+            <th>Authorname</th>
+            <th>IssueDate</th>
+            <th> ExpiryDate</th>
+            <th> Return</th>
+
+        </tr>
+        {% for i in data1 %}
+         <tr>
+
+             <td>{{i.book.bookid}} </td>
+             <td>{{i.user.user.username}} </td>
+             <td>{{i.book.title}} </td>
+             <td>{{i.book.Authorname}} </td>
+             <td>{{i.issuedate}}</td>
+             <td>{{i.expirydate}}</td>
+             <td> <button><a href="{% url 'returnbook' i.book.id %}">Return</a></button> </td>
+
+
+         </tr>
+        {% endfor %}
+
+    </table>
+    </div>
+{% endblock %}
+
+

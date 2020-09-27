@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+
+{% for i in messages %}
+<h3 style="background-color:purple;text-align:center;color:white;margin-left:550px;width:200px">{{i}}</h3>
+{% endfor %}
+<center>
+    <h1>Book View</h1>
+    <table id="myTable"  class="table table-border" width="600">
+        <thead >
+        <tr>
+            <th>S.No</th>
+            <th>Book Name</th>
+            <th>Book ID</th>
+            <th>Author Name</th>
+            <th>Cost</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.bookid}}</td>
+            <td>{{i.Authorname}}</td>
+            <td>{{i.cost}}</td>
+            <td>{{i.quantity}}</td>
+            <td> <button><a href="">Delete</a></button></td>
+
+        </tr>
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</center>
+
+
+{% endblock %}
